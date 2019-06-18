@@ -40,8 +40,8 @@
     <string name="delete_sucess_save_password">Password deleted successfully!</string>
 
     <!-- lock_screen_activity / LockScreenActivity -->
-    <string name="intro_register_password_lock_screen">Você não possui uma senha padrão cadastrada então cadastre uma senha para ter acesso ao aplicativo.</string>
-    <string name="title_lock_screen">Acesso ao aplicativo</string>
+    <string name="intro_register_password_lock_screen">You dont have a registered default password, so register a password to access the application.</string>
+    <string name="title_lock_screen">Access the Application</string>
     <string name="access_allowed">Access allowed.</string>
     <string name="access_denied">Access denied.</string>
     <string name="type_your_password">Type your passoword</string>

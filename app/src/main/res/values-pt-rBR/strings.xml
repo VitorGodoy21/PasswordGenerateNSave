@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+
+    <!-- content_main / ContentMain  == activity_main / MainActivity -->
+    <string name="app_name">My Application</string>
+    <string name="title_activity_main">Password Generator</string>
+    <string name="password_copied">senha copiada</string>
+    <string name="no_password">sem senha</string>
+    <string name="updated_password_list">lista de senhas atualizada</string>
+    <string name="action">Action</string>
+    <string name="set_the_character_types">Defina os tipos de caracteres</string>
+    <string name="set_password_size">Defina o tamanho da senha (max 30)</string>
+    <string name="and_set_password_size"> e defina o tamnho da senha(max 30)</string>
+    <string name="characters_special">!@#$%¨*()+=-/.,[]?;:</string>
+    <string name="characters_letters">qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</string>
+    <string name="characters_numbers">0123456789</string>
+    <string name="password_label">senha</string>
+    <string name="password">Senha</string>
+    <string name="size">Tam.</string>
+    <string name="letters">Letras</string>
+    <string name="numbers">Números</string>
+    <string name="special">Especiais</string>
+    <string name="generate">Gerar</string>
+    <string name="save_password">salvar senha</string>
+    <string name="title_save_password_activity">Salvar Senha</string>
+    <string name="empty_entries">Campos vazios</string>
+
+    <!-- save_password_activity / SavePassowordActivity -->
+    <string name="password_save_password">Senha*</string>
+    <string name="username_save_password">Username</string>
+    <string name="description_save_password">Observação</string>
+    <string name="title_save_password">Título*</string>
+    <string name="button_save_password">Salvar Senha</string>
+    <string name="save_sucess_save_password">Senha salva com sucesso!</string>
+    <string name="save_not_sucess_save_password">Erro ao salvar a senha :(</string>
+    <string name="title_dialog_delete_password_save_password">Deletar Senha</string>
+    <string name="text_confirmation_dialog_delete_password_save_password">Você realmente deseja deletar a senha?</string>
+    <string name="delete_sucess_save_password">Senha deletada com sucesso!</string>
+
+    <!-- lock_screen_activity / LockScreenActivity -->
+    <string name="intro_register_password_lock_screen">Você não tem uma senha padrão cadastrada, então cadastre uma senha para acessar o aplicativo.</string>
+    <string name="title_lock_screen">Acesse o aplicativo.</string>
+    <string name="access_allowed">Acesso permitido.</string>
+    <string name="access_denied">Acesso negado.</string>
+    <string name="type_your_password">Digite sua senha</string>
+    <string name="confirm_password">Confirme a sua senha</string>
+    <string name="password_not_match">Senhas não conferem</string>
+    <string name="password_save_successfully">senha salva com sucesso</string>
+
+    <!-- settings_activity / SettingsActivity -->
+    <string name="settings_title">Configurações</string>
+
+
+</resources>

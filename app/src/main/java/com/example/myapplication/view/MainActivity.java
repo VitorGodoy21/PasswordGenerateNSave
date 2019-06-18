@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
 //                startActivity(intent);
 
-                AndroidUtils.showToast(getApplicationContext(), "Open Settings...");
+                AndroidUtils.showToast(getApplicationContext(), "settings temporarily disabled");
 
             }
         });
