@@ -1,9 +1,9 @@
 # PasswordGenerateNSave #
 
-Funcionalidades:
+*Features*
 
-Tela de bloqueio liberada mediante o input da senha cadastrada na primeira inicialização do aplicativo.
+Lock Screen unloock with a password defined at the beginning of the application.
 
-Gerador de senhas podendo definir o tamanho da senha e os tipos de caracteres (Números, letras e/ou caracteres especiais)
+Password Generator - Define: size and characters types(numbers/letters/special characters).
 
-Armazenamento de senhas definindo um título, nome de usuário (e-mail/username/etc), senha (inseridaautomáticamente via gerador ou manualmente) e descrição/obervação.
+Password Database - Define: title, username/e-mail, password (with Password generator or not) and a description/note.
