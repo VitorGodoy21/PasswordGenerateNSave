@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:orientation="vertical"
+    android:layout_margin="15dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_save_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/ed_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username_save_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_title" />
+
+        <EditText
+            android:id="@+id/ed_username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:text="@string/password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_username" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/ed_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:textAlignment="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_copy"
+                    android:layout_marginRight="5dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/ed_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ed_password" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop_save_password_activity"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/ed_password">
+
+                <EditText
+                    android:id="@+id/ed_size"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_size"
+                    app:layout_constraintStart_toEndOf="@+id/tv_size"
+                    app:layout_constraintTop_toTopOf="@+id/tv_size" />
+
+                <TextView
+                    android:id="@+id/tv_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:text="@string/size"
+                    android:layout_marginRight="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_letters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_size"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_letters"
+                    app:layout_constraintTop_toTopOf="@+id/tv_size" />
+
+                <TextView
+                    android:id="@+id/tv_letters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:text="@string/letters"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_letters"
+                    app:layout_constraintEnd_toStartOf="@+id/cb_numbers"
+                    app:layout_constraintTop_toTopOf="@+id/cb_letters" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_numbers"
+                    android:layout_width="31dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_letters"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_numbers"
+                    app:layout_constraintTop_toTopOf="@+id/cb_letters" />
+
+                <TextView
+                    android:id="@+id/tv_numbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:text="@string/numbers"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_numbers"
+                    app:layout_constraintEnd_toStartOf="@+id/cb_special"
+                    android:layout_marginRight="5dp"
+                    app:layout_constraintTop_toTopOf="@+id/cb_numbers" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/cb_special"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_numbers"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_special"
+                    app:layout_constraintTop_toTopOf="@+id/cb_numbers" />
+
+                <TextView
+                    android:id="@+id/tv_special"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:text="@string/special"
+                    app:layout_constraintBottom_toBottomOf="@+id/cb_special"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cb_special" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_generate"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_buttom"
+            android:text="@string/generate"
+            android:textColor="#FFFFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_size" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:text="@string/description_save_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_generate" />
+
+        <EditText
+            android:id="@+id/ed_description"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edit_text"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_buttom"
+            android:text="@string/save_password"
+            android:textColor="#FFFFFFFF"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_description"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+                <ListView
+                    android:id="@+id/lv_passwords"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/marginTop_save_password_activity"
+                    android:layout_marginBottom="8dp"/>
+
+
+        </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<resources>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- content_main / ContentMain  == activity_main / MainActivity -->
+    <string name="app_name">My Application</string>
+    <string name="title_activity_main">Password Generator</string>
+    <string name="password_copied">password copied</string>
+    <string name="no_password">no password</string>
+    <string name="updated_password_list">updated password list</string>
+    <string name="action">Action</string>
+    <string name="set_the_character_types">Set the character types</string>
+    <string name="set_password_size">Set password size (max 30)</string>
+    <string name="and_set_password_size"> and set password size (max 30)</string>
+    <string name="characters_special">!@#$%¨*()+=-/.,[]?;:</string>
+    <string name="characters_letters">qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</string>
+    <string name="characters_numbers">0123456789</string>
+    <string name="password_label">password</string>
+    <string name="password">Password</string>
+    <string name="size">Size</string>
+    <string name="letters">Letters</string>
+    <string name="numbers">Numbers</string>
+    <string name="special">Special</string>
+    <string name="generate">generate</string>
+    <string name="save_password">save password</string>
+    <string name="title_save_password_activity">Save Password</string>
+    <string name="empty_entries">empty entries</string>
+
+    <!-- save_password_activity / SavePassowordActivity -->
+    <string name="password_save_password">Password*</string>
+    <string name="username_save_password">Username</string>
+    <string name="description_save_password">Description</string>
+    <string name="title_save_password">Title*</string>
+    <string name="button_save_password">Save Password</string>
+    <string name="save_sucess_save_password">Password saved successfully!</string>
+    <string name="save_not_sucess_save_password">Error saving password :(</string>
+    <string name="title_dialog_delete_password_save_password">Delete Password</string>
+    <string name="text_confirmation_dialog_delete_password_save_password">you really want to delete the password?</string>
+    <string name="delete_sucess_save_password">Password deleted successfully!</string>
+
+    <!-- lock_screen_activity / LockScreenActivity -->
+    <string name="intro_register_password_lock_screen">Você não possui uma senha padrão cadastrada então cadastre uma senha para ter acesso ao aplicativo.</string>
+    <string name="title_lock_screen">Acesso ao aplicativo</string>
+
+    <!-- settings_activity / SettingsActivity -->
+    <string name="settings_title">Settings</string>
+
+
+</resources>
