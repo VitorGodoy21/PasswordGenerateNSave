@@ -60,7 +60,7 @@ public class LockScreenActivity extends AppCompatActivity {
         if(mainPassword_sharedPreferences.isEmpty()){
             tv_intro.setText(getResources().getString(R.string.intro_register_password_lock_screen));
             isPassword = true;
-            ed_main_password.setHint("Digite sua senha");
+            ed_main_password.setHint(getResources().getString(R.string.type_your_password));
         }else{
             ed_main_password.setHint("");
             tv_intro.setText(getResources().getString(R.string.title_lock_screen));
@@ -159,7 +159,7 @@ public class LockScreenActivity extends AppCompatActivity {
 
                     iv_back.setVisibility(View.INVISIBLE);
                     if(ed_main_password.getText().toString().equals(mainPassword_sharedPreferences)){
-                        AndroidUtils.showToast(getApplicationContext(), "Acesso permitido" );
+                        AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.access_allowed));
                         ((MyApplication) getApplication()).setValidated(true);
 
                         Intent intent;
@@ -176,7 +176,7 @@ public class LockScreenActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     }else{
-                        AndroidUtils.showToast(getApplicationContext(), "Acesso negado" );
+                        AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.access_denied) );
                     }
 
                 }
@@ -205,8 +205,8 @@ public class LockScreenActivity extends AppCompatActivity {
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ed_main_password.setHint("Digite sua senha");
-                tv_main_password.setText("Digite sua senha");
+                ed_main_password.setHint(getResources().getString(R.string.type_your_password));
+                tv_main_password.setText(getResources().getString(R.string.type_your_password));
                 isPassword = true;
                 ed_main_password.setText("");
                 iv_back.setVisibility(View.INVISIBLE);
@@ -228,14 +228,14 @@ public class LockScreenActivity extends AppCompatActivity {
 
         if(!ed_main_password.getText().toString().isEmpty()) {
             firstPassword = ed_main_password.getText().toString();
-            ed_main_password.setHint("Confirme a senha");
-            tv_main_password.setText("Confirme a senha");
+            ed_main_password.setHint(getResources().getString(R.string.confirm_password));
+            tv_main_password.setText(getResources().getString(R.string.confirm_password));
             ed_main_password.setText("");
             isPassword = false;
             isConfirmPassword = true;
             iv_back.setVisibility(View.VISIBLE);
         }else{
-            AndroidUtils.showToast(getApplicationContext(), "Insira uma senha");
+            AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.type_your_password));
         }
     }
 
@@ -245,7 +245,7 @@ public class LockScreenActivity extends AppCompatActivity {
         if (!ed_main_password.getText().toString().isEmpty()) {
             confirmPassword = ed_main_password.getText().toString();
             if(firstPassword.equals(confirmPassword)){
-                AndroidUtils.showToast(getApplicationContext(),"Senha salva com sucesso.");
+                AndroidUtils.showToast(getApplicationContext(),getResources().getString(R.string.save_sucess_save_password));
                 sharedPreferencesPassword.setSharedPreferencesPassword(SharedPreferencesConstants.MAIN_PASSWORD_SHARED_PREFERENCE, ed_main_password.getText().toString());
                 mainPassword_sharedPreferences = ed_main_password.getText().toString();
                 ed_main_password.setText("");
@@ -258,11 +258,11 @@ public class LockScreenActivity extends AppCompatActivity {
 
             }
             else{
-                AndroidUtils.showToast(getApplicationContext(),"Senha não conferem.");
+                AndroidUtils.showToast(getApplicationContext(),getResources().getString(R.string.password_not_match));
                 ed_main_password.setText("");
             }
         } else {
-            AndroidUtils.showToast(getApplicationContext(), "Insira uma senha");
+            AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.type_your_password));
         }
     }
 

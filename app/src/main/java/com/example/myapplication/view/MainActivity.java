@@ -229,8 +229,11 @@ public class MainActivity extends AppCompatActivity {
         fab_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+//                startActivity(intent);
+
+                AndroidUtils.showToast(getApplicationContext(), "Open Settings...");
+
             }
         });
 
@@ -297,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.ID));
                 Intent intent = new Intent(MainActivity.this, SavePasswordActivity.class);
-                intent.putExtra("codigo", codigo);
+                intent.putExtra("code", codigo);
                 startActivity(intent);
             }
         });

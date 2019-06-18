@@ -140,7 +140,7 @@ public class SavePasswordActivity extends AppCompatActivity {
     }
 
     private void getExtras(){
-        code = this.getIntent().getStringExtra("codigo");
+        code = this.getIntent().getStringExtra("code");
     }
 
     private void setPasswordModel(){

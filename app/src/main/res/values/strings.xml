@@ -42,6 +42,12 @@
     <!-- lock_screen_activity / LockScreenActivity -->
     <string name="intro_register_password_lock_screen">Você não possui uma senha padrão cadastrada então cadastre uma senha para ter acesso ao aplicativo.</string>
     <string name="title_lock_screen">Acesso ao aplicativo</string>
+    <string name="access_allowed">Access allowed.</string>
+    <string name="access_denied">Access denied.</string>
+    <string name="type_your_password">Type your passoword</string>
+    <string name="confirm_password">Confirm the Password</string>
+    <string name="password_not_match">passwords do not match</string>
+    <string name="password_save_successfully">password saved successfully</string>
 
     <!-- settings_activity / SettingsActivity -->
     <string name="settings_title">Settings</string>
