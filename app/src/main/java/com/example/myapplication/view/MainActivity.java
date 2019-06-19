@@ -98,8 +98,6 @@ public class MainActivity extends AppCompatActivity {
         ed_password = findViewById(R.id.ed_password);
         ed_description = findViewById(R.id.ed_description);
 
-        ed_size.requestFocus();
-
         fab_plus = findViewById(R.id.fab);
         fab_settings = findViewById(R.id.fab_settings);
         fab_more = findViewById(R.id.fab_more);
@@ -223,8 +221,8 @@ public class MainActivity extends AppCompatActivity {
         fab_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
 
                 AndroidUtils.showToast(getApplicationContext(), "settings temporarily disabled");
 
@@ -293,6 +291,7 @@ public class MainActivity extends AppCompatActivity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.ID));
+                ((MyApplication)getApplication()).setCode(codigo);
                 Intent intent = new Intent(MainActivity.this, SavePasswordActivity.class);
                 intent.putExtra("code", codigo);
                 startActivity(intent);
@@ -303,14 +302,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+
         super.onResume();
+        ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.MAIN_ACTIVITY.getName());
 
         if(!((MyApplication) this.getApplication()).isValidated() && !((MyApplication) this.getApplication()).isNavigateOnApp()){
             Intent intent = new Intent(MainActivity.this, LockScreenActivity.class);
             startActivity(intent);
+            ((MyApplication) getApplication()).setNavigateOnApp(false);
+            return;
         }
 
-        ((MyApplication) getApplication()).setNavigateOnApp(false);
         loadListView();
         ed_password.setText("");
 

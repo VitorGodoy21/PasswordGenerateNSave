@@ -22,6 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onResume();
 
         if(!((MyApplication) this.getApplication()).isValidated() && !((MyApplication) this.getApplication()).isNavigateOnApp()){
+            finish();
             Intent intent = new Intent(SettingsActivity.this, LockScreenActivity.class);
             startActivity(intent);
         }

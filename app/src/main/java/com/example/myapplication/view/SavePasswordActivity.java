@@ -47,8 +47,12 @@ public class SavePasswordActivity extends AppCompatActivity {
 
         getExtras();
 
-        cursor = crud.loadDataById(Integer.parseInt(code));
+        if(code == null )
+            code = ((MyApplication)getApplication()).getCode();
 
+
+
+        cursor = crud.loadDataById(Integer.parseInt(code));
         ed_title.setText(cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.TITLE)));
         ed_username.setText(cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.USERNAME)));
         ed_password.setText(cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.PASSWORD)));
@@ -102,6 +106,7 @@ public class SavePasswordActivity extends AppCompatActivity {
         super.onResume();
 
         if (!((MyApplication) this.getApplication()).isValidated() && !((MyApplication) this.getApplication()).isNavigateOnApp()) {
+            finish();
             Intent intent = new Intent(SavePasswordActivity.this, LockScreenActivity.class);
             startActivity(intent);
         }
@@ -113,6 +118,12 @@ public class SavePasswordActivity extends AppCompatActivity {
         super.onStop();
         ((MyApplication) getApplication()).setValidated(false);
         ((MyApplication) getApplication()).setNavigateOnApp(false);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
 
     }
 
