@@ -1,14 +1,12 @@
 package com.example.myapplication.view;
 
 import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.content.ClipboardManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -26,14 +24,11 @@ import android.widget.TextView;
 
 import com.example.myapplication.MyApplication;
 import com.example.myapplication.R;
-import com.example.myapplication.constants.GlobalConstants;
-import com.example.myapplication.constants.SharedPreferencesConstants;
-
-import com.example.myapplication.data.SharedPreferencesPassword;
-import com.example.myapplication.util.AndroidUtils;
+import com.example.myapplication.constants.ActivitiesEnum;
 import com.example.myapplication.constants.DataConstants;
 import com.example.myapplication.controller.PasswordDataController;
 import com.example.myapplication.model.PasswordModel;
+import com.example.myapplication.util.AndroidUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -71,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final Context context = getApplicationContext();
-        ((MyApplication) getApplication()).setCurrentActivity(GlobalConstants.MAIN_ACTIVITY);
+        ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.MAIN_ACTIVITY.getName());
 
         crud = new PasswordDataController(getBaseContext());
 
@@ -189,16 +184,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(!ed_password.getText().toString().isEmpty()){
-                    iv_copy.setVisibility(View.VISIBLE);
-                    btn_save.setVisibility(View.VISIBLE);
-                    setState(2);
-                    fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
-                }else{
+                if(ed_password.getText().toString().isEmpty()){
                     iv_copy.setVisibility(View.GONE);
                     btn_save.setVisibility(View.GONE);
+                    return;
                 }
+
+                iv_copy.setVisibility(View.VISIBLE);
+                btn_save.setVisibility(View.VISIBLE);
+                setState(2);
+                fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
             }
 
             @Override
@@ -206,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
         fab_plus.setOnClickListener(new View.OnClickListener() {
             @Override

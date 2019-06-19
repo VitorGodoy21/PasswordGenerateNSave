@@ -3,22 +3,22 @@ package com.example.myapplication.view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.database.Cursor;
 import android.widget.TextView;
 
 import com.example.myapplication.MyApplication;
 import com.example.myapplication.R;
-import com.example.myapplication.constants.GlobalConstants;
-import com.example.myapplication.util.AndroidUtils;
+import com.example.myapplication.constants.ActivitiesEnum;
 import com.example.myapplication.constants.DataConstants;
 import com.example.myapplication.controller.PasswordDataController;
 import com.example.myapplication.model.PasswordModel;
+import com.example.myapplication.util.AndroidUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,7 +41,7 @@ public class SavePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.save_password_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ((MyApplication) getApplication()).setCurrentActivity(GlobalConstants.SAVE_PASSWORD_ACTIVITY);
+        ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.SAVE_PASSWORD_ACTIVITY.getName());
         crud = new PasswordDataController(getBaseContext());
         findViewById();
 
@@ -58,18 +58,14 @@ public class SavePasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(validate()){
-
+                if (validate()) {
                     setPasswordModel();
-
                     crud.updatePassword(Integer.parseInt(code), passwordModel);
-
                     AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.save_sucess_save_password));
 
                     finish();
-
-                }else{
-                    AndroidUtils.showToast( getApplicationContext(), getResources().getString(R.string.empty_entries));
+                } else {
+                    AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.empty_entries));
                 }
             }
         });
@@ -80,9 +76,7 @@ public class SavePasswordActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(SavePasswordActivity.this);
 
                 builder.setTitle(getResources().getString(R.string.title_dialog_delete_password_save_password));
-
                 builder.setMessage(getResources().getString(R.string.text_confirmation_dialog_delete_password_save_password));
-
                 builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {
                         deletePassword();
@@ -101,14 +95,13 @@ public class SavePasswordActivity extends AppCompatActivity {
         });
 
         ((MyApplication) getApplication()).setNavigateOnApp(true);
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if(!((MyApplication) this.getApplication()).isValidated() && !((MyApplication) this.getApplication()).isNavigateOnApp()){
+        if (!((MyApplication) this.getApplication()).isValidated() && !((MyApplication) this.getApplication()).isNavigateOnApp()) {
             Intent intent = new Intent(SavePasswordActivity.this, LockScreenActivity.class);
             startActivity(intent);
         }
@@ -123,7 +116,7 @@ public class SavePasswordActivity extends AppCompatActivity {
 
     }
 
-    private void findViewById(){
+    private void findViewById() {
         tv_title = findViewById(R.id.tv_title_save_password);
         tv_username = findViewById(R.id.tv_username_save_password);
         tv_password = findViewById(R.id.tv_password_save_password);
@@ -139,11 +132,11 @@ public class SavePasswordActivity extends AppCompatActivity {
         btn_delete = findViewById(R.id.btn_delete_save_password);
     }
 
-    private void getExtras(){
+    private void getExtras() {
         code = this.getIntent().getStringExtra("code");
     }
 
-    private void setPasswordModel(){
+    private void setPasswordModel() {
         passwordModel.setTitle(ed_title.getText().toString());
         passwordModel.setUsername(ed_username.getText().toString().isEmpty() ? "" : ed_username.getText().toString());
         passwordModel.setPassword(ed_password.getText().toString());
@@ -151,13 +144,13 @@ public class SavePasswordActivity extends AppCompatActivity {
         passwordModel.setDate(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
     }
 
-    private boolean validate(){
+    private boolean validate() {
 
         return ed_password.getText().toString().isEmpty() || ed_title.getText().toString().isEmpty() ? false : true;
 
     }
 
-    private void deletePassword(){
+    private void deletePassword() {
         crud.deletePassword(Integer.parseInt(code));
 
         AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.delete_sucess_save_password));
