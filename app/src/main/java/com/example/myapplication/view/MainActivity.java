@@ -286,12 +286,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String codigo;
+                String code;
                 cursor.moveToPosition(position);
-                codigo = cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.ID));
-                ((MyApplication)getApplication()).setCode(codigo);
+                code = cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.ID));
+                ((MyApplication)getApplication()).setCode(code);
                 Intent intent = new Intent(MainActivity.this, SavePasswordActivity.class);
-                intent.putExtra("code", codigo);
+                intent.putExtra("code", code);
                 startActivity(intent);
             }
         });
@@ -389,10 +389,6 @@ public class MainActivity extends AppCompatActivity {
         flagBtnSave = flag;
     }
 
-    private int getState(){
-        return flagBtnSave;
-    }
-
     private void setVisibilityFullForm(boolean visibility){
 
         if(visibility){
@@ -472,12 +468,6 @@ public class MainActivity extends AppCompatActivity {
         cb_letters.setChecked(true);
         cb_special.setChecked(true);
         cb_numbers.setChecked(true);
-    }
-
-    private void configureFabMenu(){
-
-
-
     }
 
 }

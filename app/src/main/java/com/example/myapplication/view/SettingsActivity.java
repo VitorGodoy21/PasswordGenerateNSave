@@ -137,7 +137,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                 if(validate.isEmpty()){
                     sharedPreferencesPassword.setSharedPreferencesPassword(SharedPreferencesConstants.MAIN_PASSWORD_SHARED_PREFERENCE, ed_new_password.getText().toString());
-                    AndroidUtils.showToast(getApplicationContext(), "Senha alterada com sucesso!");
+                    AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.password_changed_success_settings));
                     finish();
                     Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                     startActivity(intent);

@@ -13,7 +13,7 @@
     <string name="set_the_character_types">Set the character types</string>
     <string name="set_password_size">Set password size (max 30)</string>
     <string name="and_set_password_size"> and set password size (max 30)</string>
-    <string name="characters_special">!@#$%¨*()+=-/.,[]?;:</string>
+    <string name="characters_special">!@#$%*()+=-/.,[]?;:\</string>
     <string name="characters_letters">qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</string>
     <string name="characters_numbers">0123456789</string>
     <string name="password_label">password</string>
@@ -61,6 +61,7 @@
     <string name="confirm_new_password_settings">confirm the new password</string>
     <string name="wrong_current_password_settings">current password is incorrect</string>
     <string name="not_match_password_settings">passwords do not match</string>
+    <string name="password_changed_success_settings">password changed successfully</string>
 
 
 </resources>

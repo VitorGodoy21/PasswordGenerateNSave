@@ -61,6 +61,7 @@
     <string name="confirm_new_password_settings">confirme a nova senha</string>
     <string name="wrong_current_password_settings">senha atual está incorreta</string>
     <string name="not_match_password_settings">senhas não conferem</string>
+    <string name="password_changed_success_settings">Senha alterada com sucesso!</string>
 
 
 </resources>

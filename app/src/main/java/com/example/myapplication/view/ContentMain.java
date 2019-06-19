@@ -17,8 +17,6 @@ import com.example.myapplication.R;
 
 public class ContentMain extends Activity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -36,7 +36,6 @@ public class LockScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lock_screen_activity);
-        //((MyApplication) getApplication()).setCurrentActivity(GlobalConstants.LOCK_SCREEN_ACTIVITY);
 
         tv_intro = findViewById(R.id.tv_intro);
         tv_main_password = findViewById(R.id.tv_main_password);
