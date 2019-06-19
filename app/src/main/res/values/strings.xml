@@ -51,6 +51,16 @@
 
     <!-- settings_activity / SettingsActivity -->
     <string name="settings_title">Settings</string>
+    <string name="change_password_settings">Change password</string>
+    <string name="current_password_settings">Current password</string>
+    <string name="new_password_settings">New password</string>
+    <string name="confirm_password_settings">Confirm password</string>
+    <string name="button_change_password_settings">change password</string>
+    <string name="type_new_password_settings">type the new password</string>
+    <string name="type_current_password_settings">type the current password</string>
+    <string name="confirm_new_password_settings">confirm the new password</string>
+    <string name="wrong_current_password_settings">current password is incorrect</string>
+    <string name="not_match_password_settings">passwords do not match</string>
 
 
 </resources>
