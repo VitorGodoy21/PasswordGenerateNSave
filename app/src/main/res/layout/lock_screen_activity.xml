@@ -81,6 +81,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="1" />
 
         <Button
@@ -92,6 +93,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="2" />
 
         <Button
@@ -103,6 +105,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="3" />
 
     </LinearLayout>
@@ -121,18 +124,20 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="4" />
 
         <Button
             android:id="@+id/btn_five"
             android:layout_width="0dp"
-            android:layout_weight="0.1"
             android:layout_height="@dimen/height_button_lock_screen"
-            android:textSize="@dimen/textSize_button_lock_screen"
-            android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/custom_buttom"
+            android:text="5"
             android:textColor="#FFFFFF"
-            android:text="5" />
+            android:onClick="numberPressed"
+            android:textSize="@dimen/textSize_button_lock_screen" />
 
         <Button
             android:id="@+id/btn_six"
@@ -143,6 +148,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="6" />
 
     </LinearLayout>
@@ -161,6 +167,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="7" />
 
 
@@ -173,6 +180,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="8" />
 
         <Button
@@ -183,6 +191,7 @@
             android:textSize="@dimen/textSize_button_lock_screen"
             android:background="@drawable/custom_buttom"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="9" />
 
     </LinearLayout>
@@ -212,6 +221,7 @@
             android:background="@drawable/custom_buttom"
             android:layout_margin="2dp"
             android:textColor="#FFFFFF"
+            android:onClick="numberPressed"
             android:text="0" />
 
         <Button
