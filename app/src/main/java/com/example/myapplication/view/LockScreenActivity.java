@@ -53,10 +53,10 @@ public class LockScreenActivity extends AppCompatActivity {
             tv_intro.setText(getResources().getString(R.string.intro_register_password_lock_screen));
             isPassword = true;
             ed_main_password.setHint(getResources().getString(R.string.type_your_password));
+        }else{
+            ed_main_password.setHint("");
+            tv_intro.setText(getResources().getString(R.string.title_lock_screen));
         }
-
-        ed_main_password.setHint("");
-        tv_intro.setText(getResources().getString(R.string.title_lock_screen));
 
         ed_main_password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,6 +67,18 @@ public class LockScreenActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 tv_main_password.setVisibility(!ed_main_password.getText().toString().isEmpty() && (isConfirmPassword || isPassword) ? View.VISIBLE : View.INVISIBLE);
+
+                if (!mainPassword_sharedPreferences.isEmpty() && ed_main_password.getText().toString().equals(mainPassword_sharedPreferences)) {
+
+                    AndroidUtils.showToast(getApplicationContext(), getResources().getString(R.string.access_allowed));
+                    ((MyApplication) getApplication()).setValidated(true);
+
+                    finish();
+                    String currentActivity = ((MyApplication) getApplication()).getCurrentActivity();
+                    currentActivity = currentActivity == null ? ActivitiesEnum.MAIN_ACTIVITY.getName() : currentActivity;
+                    Intent intent = new Intent(LockScreenActivity.this, getActivity(currentActivity));
+                    startActivity(intent);
+                }
             }
 
             @Override

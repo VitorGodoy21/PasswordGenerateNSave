@@ -51,6 +51,16 @@
 
     <!-- settings_activity / SettingsActivity -->
     <string name="settings_title">Configurações</string>
+    <string name="change_password_settings">Alterar senha</string>
+    <string name="current_password_settings">Senha atual</string>
+    <string name="new_password_settings">Nova senha</string>
+    <string name="confirm_password_settings">Confirme a nova senha</string>
+    <string name="button_change_password_settings">alterar senha</string>
+    <string name="type_new_password_settings">digite a nova senha</string>
+    <string name="type_current_password_settings">digite a senha atual</string>
+    <string name="confirm_new_password_settings">confirme a nova senha</string>
+    <string name="wrong_current_password_settings">senha atual está incorreta</string>
+    <string name="not_match_password_settings">senhas não conferem</string>
 
 
 </resources>
