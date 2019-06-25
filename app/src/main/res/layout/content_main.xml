@@ -66,17 +66,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_copy"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="8dp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="@+id/ed_password"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_hide_open"
                     app:layout_constraintTop_toTopOf="@+id/ed_password" />
+
+                <ImageView
+                    android:id="@+id/iv_hide_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_down_color_primary"
+                    android:visibility="visible"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_copy"
+                    app:layout_constraintEnd_toEndOf="@+id/ed_password"
+                    app:layout_constraintTop_toTopOf="@+id/iv_copy" />
 
         </android.support.constraint.ConstraintLayout>
 
-
-
         <LinearLayout
+            android:id="@+id/ll_generate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTop_save_password_activity"
@@ -208,6 +218,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ed_description"
             />
+
+        <TextView
+            android:id="@+id/tv_no_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Você não possui senhas salvas. \n Para adicionar uma senha clique em (...) e em seguida clique em (+)"
+            android:textAlignment="center"
+            android:visibility="gone"/>
 
         <ScrollView
             android:layout_width="match_parent"
