@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 if(ed_password.getText().toString().isEmpty()){
                     iv_copy.setVisibility(View.GONE);
                     btn_save.setVisibility(View.GONE);
@@ -189,9 +190,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 iv_copy.setVisibility(View.VISIBLE);
-                btn_save.setVisibility(View.VISIBLE);
-                setState(2);
-                fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
             }
 
             @Override
