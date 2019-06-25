@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText ed_password, ed_size;
-    ImageView iv_copy;
-    TextView tv_password, tv_size, tv_letters, tv_numbers, tv_special;
+    ImageView iv_copy, iv_hide_open;
+    TextView tv_password, tv_size, tv_letters, tv_numbers, tv_special, tv_no_items;
     AppCompatCheckBox cb_letters, cb_numbers, cb_special;
     Button btn_generate, btn_save;
 
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText ed_title, ed_username, ed_description;
 
     ListView lv_passwords;
+
+    LinearLayout ll_generate;
 
     private PasswordModel passwordModel = new PasswordModel();
     private PasswordDataController crud;
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     boolean moreIsOpen = false;
     boolean plusIsClicked = false;
+    boolean generatePasswordIsOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         ed_size = findViewById(R.id.ed_size);
 
         iv_copy = findViewById(R.id.iv_copy);
+        iv_hide_open = findViewById(R.id.iv_hide_open);
 
         tv_password = findViewById(R.id.tv_password);
         tv_size = findViewById(R.id.tv_size);
@@ -92,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         tv_username = findViewById(R.id.tv_username);
         tv_password = findViewById(R.id.tv_password);
         tv_description = findViewById(R.id.tv_description);
+        tv_no_items = findViewById(R.id.tv_no_items);
 
         ed_title = findViewById(R.id.ed_title);
         ed_username = findViewById(R.id.ed_username);
@@ -101,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
         fab_plus = findViewById(R.id.fab);
         fab_settings = findViewById(R.id.fab_settings);
         fab_more = findViewById(R.id.fab_more);
+
+        ll_generate = findViewById(R.id.ll_generate);
+
+        //iv_hide_open.setRotation(180);
+        ll_generate.setVisibility(View.GONE);
+        btn_generate.setVisibility(View.GONE);
 
         loadListView();
 
@@ -118,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 }else if(flagBtnSave == 1){ // TO SAVE
                     fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_add));
                     savePassword();
+                    plusIsClicked = false;
                 }else if(flagBtnSave == 2){ // PRE SAVE
                     setVisibilityFullForm(true);
                     fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
@@ -279,7 +292,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         lv_passwords.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -291,6 +303,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SavePasswordActivity.class);
                 intent.putExtra("code", code);
                 startActivity(intent);
+            }
+        });
+
+        iv_hide_open.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(generatePasswordIsOpen){
+                    ll_generate.setVisibility(View.GONE);
+                    btn_generate.setVisibility(View.GONE);
+                    generatePasswordIsOpen = false;
+                    iv_hide_open.setRotation(0);
+                }
+                else{
+                    ll_generate.setVisibility(View.VISIBLE);
+                    btn_generate.setVisibility(View.VISIBLE);
+                    generatePasswordIsOpen = true;
+                    iv_hide_open.setRotation(180);
+                }
             }
         });
 
@@ -381,6 +411,11 @@ public class MainActivity extends AppCompatActivity {
         lv_passwords = findViewById(R.id.lv_passwords);
         lv_passwords.setAdapter(adapter);
 
+        if(cursor.getCount() == 0)
+            tv_no_items.setVisibility(View.VISIBLE);
+        else
+            tv_no_items.setVisibility(View.GONE);
+
     }
 
     private void setState(int flag){
@@ -430,6 +465,8 @@ public class MainActivity extends AppCompatActivity {
             else{
                 AndroidUtils.showToast(getApplicationContext(),getResources().getString(R.string.save_not_sucess_save_password));
             }
+
+            fab_more.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_more));
 
             ed_password.setText("");
 
