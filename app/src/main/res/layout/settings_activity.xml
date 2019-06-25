@@ -72,7 +72,7 @@
                 android:id="@+id/ed_current_password_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Current password" />
+                android:hint="@string/current_password_settings" />
 
 
         </android.support.design.widget.TextInputLayout>
@@ -90,7 +90,7 @@
                 android:id="@+id/ed_new_password_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="New password" />
+                android:hint="@string/new_password_settings" />
 
 
         </android.support.design.widget.TextInputLayout>
@@ -108,7 +108,7 @@
                 android:id="@+id/ed_confirm_password_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm password" />
+                android:hint="@string/confirm_password_settings" />
 
 
         </android.support.design.widget.TextInputLayout>

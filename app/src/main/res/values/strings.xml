@@ -38,6 +38,7 @@
     <string name="title_dialog_delete_password_save_password">Delete Password</string>
     <string name="text_confirmation_dialog_delete_password_save_password">you really want to delete the password?</string>
     <string name="delete_sucess_save_password">Password deleted successfully!</string>
+    <string name="required_save_password">* required</string>
 
     <!-- lock_screen_activity / LockScreenActivity -->
     <string name="intro_register_password_lock_screen">You dont have a registered default password, so register a password to access the application.</string>
