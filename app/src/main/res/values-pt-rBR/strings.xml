@@ -38,6 +38,7 @@
     <string name="title_dialog_delete_password_save_password">Deletar Senha</string>
     <string name="text_confirmation_dialog_delete_password_save_password">Você realmente deseja deletar a senha?</string>
     <string name="delete_sucess_save_password">Senha deletada com sucesso!</string>
+    <string name="required_save_password">* obrigatório</string>
 
     <!-- lock_screen_activity / LockScreenActivity -->
     <string name="intro_register_password_lock_screen">Você não tem uma senha padrão cadastrada, então cadastre uma senha para acessar o aplicativo.</string>

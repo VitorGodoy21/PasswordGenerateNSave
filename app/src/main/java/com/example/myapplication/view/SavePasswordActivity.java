@@ -25,7 +25,7 @@ import java.util.Date;
 
 public class SavePasswordActivity extends AppCompatActivity {
 
-    private TextView tv_title, tv_username, tv_password, tv_description, tv_required;
+    private TextView tv_required;
     private EditText ed_title, ed_username, ed_password, ed_description;
     private Button btn_save, btn_delete;
     private String password = "";
@@ -128,10 +128,6 @@ public class SavePasswordActivity extends AppCompatActivity {
     }
 
     private void findViewById() {
-        tv_title = findViewById(R.id.tv_title_save_password);
-        tv_username = findViewById(R.id.tv_username_save_password);
-        tv_password = findViewById(R.id.tv_password_save_password);
-        tv_description = findViewById(R.id.tv_description_save_password);
         tv_required = findViewById(R.id.tv_required_save_password);
 
         ed_title = findViewById(R.id.ed_title_save_password);

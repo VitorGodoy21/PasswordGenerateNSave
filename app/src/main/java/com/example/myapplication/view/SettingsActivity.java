@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.print.PrinterId;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -23,10 +25,10 @@ import com.example.myapplication.util.AndroidUtils;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private TextView tv_change_password, tv_current_password, tv_new_password, tv_confirm_password;
+    private TextView tv_change_password;
     private ImageView iv_arrow_down;
     private ConstraintLayout cl_change_password;
-    private EditText ed_current_password, ed_new_password, ed_confirm_password;
+    private TextInputEditText ed_current_password, ed_new_password, ed_confirm_password;
     private Button btn_change_password;
 
     SharedPreferencesPassword sharedPreferencesPassword;
@@ -40,9 +42,6 @@ public class SettingsActivity extends AppCompatActivity {
         ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.SETTINGS_ACTIVITY.getName());
 
         tv_change_password = findViewById(R.id.tv_change_password_settings);
-        tv_current_password = findViewById(R.id.tv_current_password_settings);
-        tv_new_password = findViewById(R.id.tv_new_password_settings);
-        tv_confirm_password = findViewById(R.id.tv_confirm_password_settings);
         iv_arrow_down = findViewById(R.id.iv_arrow_down_settings);
         cl_change_password = findViewById(R.id.cl_change_password_settings);
         ed_current_password = findViewById(R.id.ed_current_password_settings);
@@ -66,66 +65,6 @@ public class SettingsActivity extends AppCompatActivity {
                     iv_arrow_down.setRotation(180);
                 }
                 changePasswordSettingsIsOpen = !changePasswordSettingsIsOpen;
-            }
-        });
-
-        ed_current_password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!ed_current_password.getText().toString().isEmpty())
-                    tv_current_password.setVisibility(View.VISIBLE);
-                else
-                    tv_current_password.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        ed_new_password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!ed_new_password.getText().toString().isEmpty())
-                    tv_new_password.setVisibility(View.VISIBLE);
-                else
-                    tv_new_password.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        ed_confirm_password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!ed_confirm_password.getText().toString().isEmpty())
-                    tv_confirm_password.setVisibility(View.VISIBLE);
-                else
-                    tv_confirm_password.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
             }
         });
 

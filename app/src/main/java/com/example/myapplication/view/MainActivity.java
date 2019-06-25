@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -40,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     EditText ed_password, ed_size;
     ImageView iv_copy, iv_hide_open;
-    TextView tv_password, tv_size, tv_letters, tv_numbers, tv_special, tv_no_items;
+    TextView tv_size, tv_letters, tv_numbers, tv_special, tv_no_items;
     AppCompatCheckBox cb_letters, cb_numbers, cb_special;
     Button btn_generate, btn_save;
+    TextInputLayout til_title, til_username, til_password, til_description;
 
-    private TextView tv_title, tv_username, tv_description;
     private EditText ed_title, ed_username, ed_description;
 
     ListView lv_passwords;
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         iv_copy = findViewById(R.id.iv_copy);
         iv_hide_open = findViewById(R.id.iv_hide_open);
 
-        tv_password = findViewById(R.id.tv_password);
         tv_size = findViewById(R.id.tv_size);
         tv_letters = findViewById(R.id.tv_letters);
         tv_numbers = findViewById(R.id.tv_numbers);
@@ -93,16 +93,17 @@ public class MainActivity extends AppCompatActivity {
         btn_generate = findViewById(R.id.btn_generate);
         btn_save = findViewById(R.id.btn_save);
 
-        tv_title = findViewById(R.id.tv_title);
-        tv_username = findViewById(R.id.tv_username);
-        tv_password = findViewById(R.id.tv_password);
-        tv_description = findViewById(R.id.tv_description);
         tv_no_items = findViewById(R.id.tv_no_items);
 
         ed_title = findViewById(R.id.ed_title);
         ed_username = findViewById(R.id.ed_username);
         ed_password = findViewById(R.id.ed_password);
         ed_description = findViewById(R.id.ed_description);
+
+        til_title = findViewById(R.id.til_title);
+        til_username = findViewById(R.id.til_username);
+        til_password = findViewById(R.id.til_password);
+        til_description = findViewById(R.id.til_description);
 
         fab_plus = findViewById(R.id.fab);
         fab_settings = findViewById(R.id.fab_settings);
@@ -425,21 +426,14 @@ public class MainActivity extends AppCompatActivity {
     private void setVisibilityFullForm(boolean visibility){
 
         if(visibility){
-            tv_title.setVisibility(View.VISIBLE);
-            ed_title.setVisibility(View.VISIBLE);
-            tv_username.setVisibility(View.VISIBLE);
-            ed_username.setVisibility(View.VISIBLE);
-            tv_description.setVisibility(View.VISIBLE);
-            ed_description.setVisibility(View.VISIBLE);
+            til_title.setVisibility(View.VISIBLE);
+            til_username.setVisibility(View.VISIBLE);
+            til_description.setVisibility(View.VISIBLE);
         }
         else{
-            tv_title.setVisibility(View.GONE);
-            ed_title.setVisibility(View.GONE);
-            tv_username.setVisibility(View.GONE);
-            ed_username.setVisibility(View.GONE);
-            tv_description.setVisibility(View.GONE);
-            ed_description.setVisibility(View.GONE);
-
+            til_title.setVisibility(View.GONE);
+            til_username.setVisibility(View.GONE);
+            til_description.setVisibility(View.GONE);
         }
     }
 
