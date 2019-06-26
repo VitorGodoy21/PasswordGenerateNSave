@@ -59,6 +59,23 @@ public class PasswordDataController {
 
     }
 
+    public Cursor loadFullData(){
+        Cursor cursor;
+
+        String[] columns = {DataConstants.ID, DataConstants.TITLE, DataConstants.USERNAME, DataConstants.PASSWORD, DataConstants.DESCRIPTION};
+
+        SQLiteDatabase db = passwordData.getReadableDatabase();
+
+        cursor = db.query(DataConstants.TABLE, columns, null, null, null, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        db.close();
+
+        return cursor;
+    }
+
     public Cursor loadDataById(int id){
         Cursor cursor;
         String[] columns =  {DataConstants.ID,DataConstants.TITLE,DataConstants.USERNAME,DataConstants.PASSWORD, DataConstants.DESCRIPTION};

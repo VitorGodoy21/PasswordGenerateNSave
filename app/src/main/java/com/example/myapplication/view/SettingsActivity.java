@@ -1,6 +1,7 @@
 package com.example.myapplication.view;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.print.PrinterId;
 import android.support.constraint.ConstraintLayout;
@@ -19,27 +20,38 @@ import android.widget.TextView;
 import com.example.myapplication.MyApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.constants.ActivitiesEnum;
+import com.example.myapplication.constants.DataConstants;
 import com.example.myapplication.constants.SharedPreferencesConstants;
+import com.example.myapplication.controller.PasswordDataController;
 import com.example.myapplication.data.SharedPreferencesPassword;
 import com.example.myapplication.util.AndroidUtils;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private TextView tv_change_password;
-    private ImageView iv_arrow_down;
-    private ConstraintLayout cl_change_password;
+    private TextView tv_change_password, tv_share, tv_share_info;
+    private ImageView iv_arrow_down, iv_share_arrow_down;
+    private ConstraintLayout cl_change_password, cl_share;
     private TextInputEditText ed_current_password, ed_new_password, ed_confirm_password;
-    private Button btn_change_password;
+    private Button btn_change_password, btn_share;
 
     SharedPreferencesPassword sharedPreferencesPassword;
+    private PasswordDataController crud;
+    Cursor cursor;
 
     boolean changePasswordSettingsIsOpen = false;
+    boolean sharePasswordsSettingsIsOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.SETTINGS_ACTIVITY.getName());
+
+        tv_share = findViewById(R.id.tv_share_settings);
+        iv_share_arrow_down = findViewById(R.id.iv_share_arrow_down_settings);
+        cl_share = findViewById(R.id.cl_share_settings);
+        tv_share_info = findViewById(R.id.tv_share_info_settings);
+        btn_share = findViewById(R.id.btn_share_settings);
 
         tv_change_password = findViewById(R.id.tv_change_password_settings);
         iv_arrow_down = findViewById(R.id.iv_arrow_down_settings);
@@ -50,6 +62,49 @@ public class SettingsActivity extends AppCompatActivity {
         btn_change_password = findViewById(R.id.btn_change_password_settings);
 
         sharedPreferencesPassword = new SharedPreferencesPassword(getApplicationContext());
+        crud = new PasswordDataController(getBaseContext());
+        cursor = crud.loadFullData();
+
+        if(cursor.getCount() > 0){
+            tv_share_info.setText(getResources().getString(R.string.info_about_share_passwords_settings));
+            btn_share.setVisibility(View.VISIBLE);
+        }else{
+            tv_share_info.setText("Você não possui senhas para compartilhar");
+            btn_share.setVisibility(View.GONE);
+        }
+
+
+
+        tv_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(sharePasswordsSettingsIsOpen){
+                    cl_share.setVisibility(View.GONE);
+                    tv_share.setBackgroundResource(R.drawable.custom_buttom);
+                    iv_share_arrow_down.setRotation(0);
+                }else{
+                    cl_share.setVisibility(View.VISIBLE);
+                    tv_share.setBackgroundResource(R.drawable.custom_tv_settings_open);
+                    iv_share_arrow_down.setRotation(180);
+                }
+                sharePasswordsSettingsIsOpen = !sharePasswordsSettingsIsOpen;
+            }
+        });
+
+        btn_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                String text = createTextToShare();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });
 
         tv_change_password.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +149,16 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        cursor = crud.loadFullData();
+
+        if(cursor.getCount() > 0){
+            tv_share_info.setText(getResources().getString(R.string.info_about_share_passwords_settings));
+            btn_share.setVisibility(View.VISIBLE);
+        }else{
+            tv_share_info.setText(getResources().getString(R.string.dont_have_password_settings));
+            btn_share.setVisibility(View.GONE);
+        }
+
 
         if(!((MyApplication) this.getApplication()).isValidated() && !((MyApplication) this.getApplication()).isNavigateOnApp()){
             finish();
@@ -129,6 +194,36 @@ public class SettingsActivity extends AppCompatActivity {
             return getResources().getString(R.string.not_match_password_settings);
 
         return  "";
+    }
+
+    private String createTextToShare(){
+
+        StringBuilder shareableText = new StringBuilder();
+
+        shareableText.append(getResources().getString(R.string.passwords_backup_settings));
+
+        int count = 0;
+        while (count < cursor.getCount()) {
+
+
+            String title = cursor.getString( cursor.getColumnIndex(DataConstants.TITLE) );
+            shareableText.append(getResources().getString(R.string.title_to_share_setting) + title + "\n");
+
+            String username = cursor.getString( cursor.getColumnIndex(DataConstants.USERNAME) );
+            shareableText.append(getResources().getString(R.string.username_to_share_setting) + username + "\n");
+
+            String password = cursor.getString( cursor.getColumnIndex(DataConstants.PASSWORD) );
+            shareableText.append(getResources().getString(R.string.password_to_share_setting) + password + "\n");
+
+            String description = cursor.getString( cursor.getColumnIndex(DataConstants.DESCRIPTION) );
+            shareableText.append(getResources().getString(R.string.description_to_share_setting) + description + "\n\n" );
+
+            cursor.moveToNext();
+            count++;
+        }
+
+
+        return  shareableText.toString();
     }
 
 }

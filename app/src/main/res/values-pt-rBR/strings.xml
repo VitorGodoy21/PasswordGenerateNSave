@@ -63,6 +63,15 @@
     <string name="wrong_current_password_settings">senha atual está incorreta</string>
     <string name="not_match_password_settings">senhas não conferem</string>
     <string name="password_changed_success_settings">Senha alterada com sucesso!</string>
+    <string name="share_passwords_settings">Compartilhar senhas</string>
+    <string name="info_about_share_passwords_settings">Para compartilhar e/ou armazenar as senhas salvas para backup</string>
+    <string name="passwords_backup_settings">BACKUP DAS SENHAS SALVAS:\n\n</string>
+    <string name="title_to_share_setting">TÍTULO: </string>
+    <string name="username_to_share_setting">USERNAME: </string>
+    <string name="password_to_share_setting">SENHA: </string>
+    <string name="description_to_share_setting">DESCRIÇÃO: </string>
+    <string name="dont_have_password_settings">Você não possui senhas para compartilhar</string>
+
 
 
 </resources>
