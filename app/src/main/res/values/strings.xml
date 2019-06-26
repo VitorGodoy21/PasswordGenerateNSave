@@ -63,6 +63,14 @@
     <string name="wrong_current_password_settings">current password is incorrect</string>
     <string name="not_match_password_settings">passwords do not match</string>
     <string name="password_changed_success_settings">password changed successfully</string>
+    <string name="share_passwords_settings">Share passwords</string>
+    <string name="info_about_share_passwords_settings">To share and/or store passwords saved for backup</string>
+    <string name="passwords_backup_settings">PASSWORDS BACKUP:\n\n</string>
+    <string name="title_to_share_setting">TITLE: </string>
+    <string name="username_to_share_setting">USERNAME: </string>
+    <string name="password_to_share_setting">PASSWORD: </string>
+    <string name="description_to_share_setting">DESCRIPTION: </string>
+    <string name="dont_have_password_settings">You dont have passwords to share</string>
 
 
 </resources>
