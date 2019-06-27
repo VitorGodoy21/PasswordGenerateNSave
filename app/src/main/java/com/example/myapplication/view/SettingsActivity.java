@@ -81,7 +81,7 @@ public class SettingsActivity extends BaseActivity {
             tv_share_info.setText(getResources().getString(R.string.info_about_share_passwords_settings));
             btn_share.setVisibility(View.VISIBLE);
         }else{
-            tv_share_info.setText("Você não possui senhas para compartilhar");
+            tv_share_info.setText(getResources().getString(R.string.dont_have_password_settings));
             btn_share.setVisibility(View.GONE);
         }
 

@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
 
     EditText ed_password, ed_size;
     ImageView iv_copy, iv_hide_open;
-    TextView tv_size, tv_letters, tv_numbers, tv_special, tv_no_items;
+    TextView tv_size, tv_letters, tv_numbers, tv_special, tv_no_items, tv_lv_passwords;
     AppCompatCheckBox cb_letters, cb_numbers, cb_special;
     Button btn_generate, btn_save;
     TextInputLayout til_title, til_username, til_password, til_description;
@@ -86,6 +86,7 @@ public class MainActivity extends BaseActivity {
         tv_letters = findViewById(R.id.tv_letters);
         tv_numbers = findViewById(R.id.tv_numbers);
         tv_special = findViewById(R.id.tv_special);
+        tv_lv_passwords = findViewById(R.id.tv_lv_passwords);
 
         cb_letters = findViewById(R.id.cb_letters);
         cb_numbers = findViewById(R.id.cb_numbers);
@@ -125,8 +126,8 @@ public class MainActivity extends BaseActivity {
 
                 if(flagBtnSave == 0){ // INITIAL STATE
                     setVisibilityFullForm(true);
-                    fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                     lv_passwords.setVisibility(View.GONE);
+                    tv_lv_passwords.setVisibility(View.GONE);
                     setState(1);
 
                 }else if(flagBtnSave == 1){ // TO SAVE
@@ -135,8 +136,8 @@ public class MainActivity extends BaseActivity {
                     plusIsClicked = false;
                 }else if(flagBtnSave == 2){ // PRE SAVE
                     setVisibilityFullForm(true);
-                    fab_plus.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                     lv_passwords.setVisibility(View.GONE);
+                    tv_lv_passwords.setVisibility(View.GONE);
                     setState(1);
                 }
             }
@@ -224,7 +225,10 @@ public class MainActivity extends BaseActivity {
 
                 setVisibilityFullForm(true);
                 lv_passwords.setVisibility(View.GONE);
+
                 btn_save.setVisibility(View.VISIBLE);
+                til_password.setVisibility(View.VISIBLE);
+                iv_hide_open.setVisibility(View.VISIBLE);
                 setState(1);
                 fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
 
@@ -286,6 +290,8 @@ public class MainActivity extends BaseActivity {
                         lv_passwords.setVisibility(View.GONE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                         btn_save.setVisibility(View.VISIBLE);
+                        til_password.setVisibility(View.VISIBLE);
+                        iv_hide_open.setVisibility(View.VISIBLE);
                         setState(1);
 
                     }
@@ -413,10 +419,14 @@ public class MainActivity extends BaseActivity {
         lv_passwords = findViewById(R.id.lv_passwords);
         lv_passwords.setAdapter(adapter);
 
-        if(cursor.getCount() == 0)
+        if(cursor.getCount() == 0){
             tv_no_items.setVisibility(View.VISIBLE);
-        else
+            tv_lv_passwords.setVisibility(View.GONE);
+        }else{
             tv_no_items.setVisibility(View.GONE);
+            tv_lv_passwords.setVisibility(View.VISIBLE);
+        }
+
 
     }
 

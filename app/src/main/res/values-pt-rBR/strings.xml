@@ -26,6 +26,8 @@
     <string name="save_password">salvar senha</string>
     <string name="title_save_password_activity">Salvar Senha</string>
     <string name="empty_entries">Campos vazios</string>
+    <string name="password_list">Lista das Senhas</string>
+    <string name="text_no_passwords">Você não possui senhas salvas. \n Para adicionar uma senha clique em (...) e em seguida clique em (+)</string>
 
     <!-- save_password_activity / SavePassowordActivity -->
     <string name="password_save_password">Senha*</string>
@@ -71,6 +73,8 @@
     <string name="password_to_share_setting">SENHA: </string>
     <string name="description_to_share_setting">DESCRIÇÃO: </string>
     <string name="dont_have_password_settings">Você não possui senhas para compartilhar</string>
+    <string name="change_theme_settings">Alterar o tema</string>
+    <string name="select_color_theme_info_title">Selecione a cor tema do aplicativo</string>
 
 
 
