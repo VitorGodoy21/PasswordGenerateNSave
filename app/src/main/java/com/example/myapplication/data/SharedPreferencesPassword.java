@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SharedPreferencesPassword{
+import com.example.myapplication.view.base.BaseActivity;
 
-    private String MainPassword = "";
+public class SharedPreferencesPassword extends BaseActivity {
 
     private SharedPreferences settings;
     SharedPreferences.Editor editor;
@@ -23,6 +23,10 @@ public class SharedPreferencesPassword{
 
     public String getSharedPreferencesPassword(String key){
         return settings.getString(key,"");
+    }
+
+    public String getSharedPreferencesPassword(String key, String defValue){
+        return settings.getString(key, defValue);
     }
 
     public void removeSharedPreferencesPassword(String key){

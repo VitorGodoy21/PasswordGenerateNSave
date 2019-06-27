@@ -19,11 +19,12 @@ import com.example.myapplication.constants.DataConstants;
 import com.example.myapplication.controller.PasswordDataController;
 import com.example.myapplication.model.PasswordModel;
 import com.example.myapplication.util.AndroidUtils;
+import com.example.myapplication.view.base.BaseActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SavePasswordActivity extends AppCompatActivity {
+public class SavePasswordActivity extends BaseActivity {
 
     private TextView tv_required;
     private EditText ed_title, ed_username, ed_password, ed_description;
@@ -37,10 +38,9 @@ public class SavePasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.save_password_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.SAVE_PASSWORD_ACTIVITY.getName());
         crud = new PasswordDataController(getBaseContext());
         findViewById();
@@ -49,8 +49,6 @@ public class SavePasswordActivity extends AppCompatActivity {
 
         if(code == null )
             code = ((MyApplication)getApplication()).getCode();
-
-
 
         cursor = crud.loadDataById(Integer.parseInt(code));
         ed_title.setText(cursor.getString(cursor.getColumnIndexOrThrow(DataConstants.TITLE)));
