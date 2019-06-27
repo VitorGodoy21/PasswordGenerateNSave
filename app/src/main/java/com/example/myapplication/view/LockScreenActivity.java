@@ -17,10 +17,11 @@ import com.example.myapplication.constants.ActivitiesEnum;
 import com.example.myapplication.constants.SharedPreferencesConstants;
 import com.example.myapplication.data.SharedPreferencesPassword;
 import com.example.myapplication.util.AndroidUtils;
+import com.example.myapplication.view.base.BaseActivity;
 
 import static com.example.myapplication.constants.ActivitiesEnum.getActivity;
 
-public class LockScreenActivity extends AppCompatActivity {
+public class LockScreenActivity extends BaseActivity {
 
     private TextView tv_main_password, tv_intro;
     private EditText ed_main_password;
@@ -34,6 +35,7 @@ public class LockScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lock_screen_activity);
 

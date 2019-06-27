@@ -31,12 +31,13 @@ import com.example.myapplication.constants.DataConstants;
 import com.example.myapplication.controller.PasswordDataController;
 import com.example.myapplication.model.PasswordModel;
 import com.example.myapplication.util.AndroidUtils;
+import com.example.myapplication.view.base.BaseActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     EditText ed_password, ed_size;
@@ -66,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         final Context context = getApplicationContext();
         ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.MAIN_ACTIVITY.getName());
 

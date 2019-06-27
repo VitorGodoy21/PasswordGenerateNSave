@@ -2,10 +2,45 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeLightRed" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#FF6363</item>
+        <item name="colorPrimaryDark">#FF6363</item>
+        <item name="colorAccent">#FF6363</item>
+    </style>
+
+    <style name="AppThemeGray" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#CECECE</item>
+        <item name="colorPrimaryDark">#CECECE</item>
+        <item name="colorAccent">#CECECE</item>
+    </style>
+
+    <style name="AppThemeBlue" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#677DB7</item>
+        <item name="colorPrimaryDark">#677DB7</item>
+        <item name="colorAccent">#677DB7</item>
+    </style>
+
+    <style name="AppThemePurple" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#783c6f</item>
+        <item name="colorPrimaryDark">#783c6f</item>
+        <item name="colorAccent">#783c6f</item>
+    </style>
+
+    <style name="AppThemeDarkGreen" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#80D39B</item>
+        <item name="colorPrimaryDark">#80D39B</item>
+        <item name="colorAccent">#80D39B</item>
+    </style>
+
+    <style name="AppThemeBlack" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#2e2e2e</item>
+        <item name="colorPrimaryDark">#2e2e2e</item>
+        <item name="colorAccent">#2e2e2e</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
