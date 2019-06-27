@@ -75,13 +75,12 @@
     <string name="dont_have_password_settings">You dont have passwords to share</string>
     <string name="change_theme_settings">Change theme</string>
     <string name="select_color_theme_info_title">Select the theme color of the application</string>
-    <string name="select_language_title_settings">Select Language</string>
+    <string name="select_language_title_settings">Select language</string>
     <string name="portuguese_settings">Portuguese</string>
     <string name="english_settings">English</string>
     <string name="spanish_settings">Espanish</string>
     <string name="confirm_settings">confirm</string>
     <string name="language_changed_success">language changed successfully!</string>
-
 
 
 </resources>

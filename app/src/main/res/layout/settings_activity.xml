@@ -350,6 +350,109 @@
 
             </android.support.constraint.ConstraintLayout>
 
+             <!-- SELECT LANGUAGE -->
+
+            <TextView
+                android:id="@+id/tv_language_settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_marginTop="72dp"
+                android:background="?attr/colorPrimary"
+                android:gravity="center_vertical"
+                android:padding="15dp"
+                android:text="@string/select_language_title_settings"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_change_theme_settings" />
+
+            <ImageView
+                android:id="@+id/iv_language_arrow_down_settings"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_language_settings"
+                app:layout_constraintEnd_toEndOf="@+id/tv_language_settings"
+                app:layout_constraintTop_toTopOf="@+id/tv_language_settings" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_language_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/custom_cl_settings"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_language_settings">
+
+                <RadioGroup
+                    android:id="@+id/rg_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="10dp">
+
+                    <RadioButton
+                        android:id="@+id/rb_pt_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:allowUndo="true"
+                        android:buttonTint="?attr/colorPrimary"
+                        android:text="@string/portuguese_settings"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:textColorHint="?attr/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rb_en_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="?attr/colorPrimary"
+                        android:text="@string/english_settings"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:textColorHint="?attr/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rb_es_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="15dp"
+                        android:buttonTint="?attr/colorPrimary"
+                        android:text="@string/spanish_settings"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:textColorHint="?attr/colorPrimary" />
+
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/btn_confirm_language_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_buttom"
+                    android:text="@string/confirm_settings"
+                    android:textColor="#FFFFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rg_language" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>

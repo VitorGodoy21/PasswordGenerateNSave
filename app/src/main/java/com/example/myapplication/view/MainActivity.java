@@ -4,6 +4,9 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +17,7 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -28,13 +32,16 @@ import com.example.myapplication.MyApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.constants.ActivitiesEnum;
 import com.example.myapplication.constants.DataConstants;
+import com.example.myapplication.constants.SharedPreferencesConstants;
 import com.example.myapplication.controller.PasswordDataController;
+import com.example.myapplication.data.SharedPreferencesPassword;
 import com.example.myapplication.model.PasswordModel;
 import com.example.myapplication.util.AndroidUtils;
 import com.example.myapplication.view.base.BaseActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends BaseActivity {
@@ -59,6 +66,8 @@ public class MainActivity extends BaseActivity {
 
     private FloatingActionButton fab_plus, fab_settings, fab_more;
 
+    SharedPreferencesPassword sharedPreferencesPassword;
+
     int flagBtnSave = 0;
 
     boolean moreIsOpen = false;
@@ -73,6 +82,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         final Context context = getApplicationContext();
         ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.MAIN_ACTIVITY.getName());
+        sharedPreferencesPassword = new SharedPreferencesPassword(context);
 
         crud = new PasswordDataController(getBaseContext());
 
@@ -120,7 +130,7 @@ public class MainActivity extends BaseActivity {
         loadListView();
 
         setVisibilityFullForm(false);
-
+        setLocale();
         btn_save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -238,6 +248,7 @@ public class MainActivity extends BaseActivity {
         fab_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ((MyApplication) getApplication()).setNeedRecreate(true);
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
 
@@ -508,6 +519,24 @@ public class MainActivity extends BaseActivity {
         cb_letters.setChecked(true);
         cb_special.setChecked(true);
         cb_numbers.setChecked(true);
+    }
+
+    public void setLocale() {
+
+        if(((MyApplication) getApplication()).isNeedRecreate()){
+            String lang = sharedPreferencesPassword.getSharedPreferencesPassword(SharedPreferencesConstants.LOCALE_SHARED_PREFERENCE, "pt");
+            Locale myLocale = new Locale(lang);
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+            finish();
+            ((MyApplication) getApplication()).setNeedRecreate(false);
+        }
+
     }
 
 }

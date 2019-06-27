@@ -32,6 +32,7 @@
         <activity
             android:name=".view.MainActivity"
             android:label="@string/title_activity_main"
+            android:configChanges="locale"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
@@ -39,6 +40,7 @@
         <activity
             android:name=".view.SettingsActivity"
             android:label="@string/settings_title"
+            android:configChanges="locale"
             android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

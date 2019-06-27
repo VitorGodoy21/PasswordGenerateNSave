@@ -75,6 +75,12 @@
     <string name="dont_have_password_settings">Você não possui senhas para compartilhar</string>
     <string name="change_theme_settings">Alterar o tema</string>
     <string name="select_color_theme_info_title">Selecione a cor tema do aplicativo</string>
+    <string name="select_language_title_settings">Selecionar idioma</string>
+    <string name="portuguese_settings">Português</string>
+    <string name="english_settings">Inglês</string>
+    <string name="spanish_settings">Espanhol</string>
+    <string name="confirm_settings">confirmar</string>
+    <string name="language_changed_success">idioma alterado com sucesso!</string>
 
 
 
