@@ -1,10 +1,13 @@
 package com.example.myapplication.view;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +21,8 @@ import com.example.myapplication.constants.SharedPreferencesConstants;
 import com.example.myapplication.data.SharedPreferencesPassword;
 import com.example.myapplication.util.AndroidUtils;
 import com.example.myapplication.view.base.BaseActivity;
+
+import java.util.Locale;
 
 import static com.example.myapplication.constants.ActivitiesEnum.getActivity;
 
@@ -58,6 +63,8 @@ public class LockScreenActivity extends BaseActivity {
             ed_main_password.setHint("");
             tv_intro.setText(getResources().getString(R.string.title_lock_screen));
         }
+
+        setLocale();
 
         ed_main_password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -192,6 +199,24 @@ public class LockScreenActivity extends BaseActivity {
 
     public void numberPressed(View view) {
         btnClick(((Button) view).getText().toString());
+    }
+
+    public void setLocale() {
+
+        if(((MyApplication) getApplication()).isNeedRecreate()){
+            String lang = sharedPreferencesPassword.getSharedPreferencesPassword(SharedPreferencesConstants.LOCALE_SHARED_PREFERENCE, "pt");
+            Locale myLocale = new Locale(lang);
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+            finish();
+            ((MyApplication) getApplication()).setNeedRecreate(false);
+        }
+
     }
 
 }

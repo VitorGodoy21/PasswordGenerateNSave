@@ -8,6 +8,15 @@ public class MyApplication extends Application {
     private boolean navigateOnApp;
     private String currentActivity;
     private String code;
+    private boolean needRecreate = true;
+
+    public boolean isNeedRecreate() {
+        return needRecreate;
+    }
+
+    public void setNeedRecreate(boolean needRecreate) {
+        this.needRecreate = needRecreate;
+    }
 
     public String getCode() {
         return code;

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+
+    <!-- content_main / ContentMain  == activity_main / MainActivity -->
+    <string name="app_name">My Application</string>
+    <string name="title_activity_main">Password Generator</string>
+    <string name="password_copied">contraseña copiada</string>
+    <string name="no_password">sin contraseña</string>
+    <string name="updated_password_list">lista de contraseñas actualizadas</string>
+    <string name="action">Action</string>
+    <string name="set_the_character_types">Establezca los tipos de caracteres</string>
+    <string name="set_password_size">Establezca el tamaño de la contraseña (max 30)</string>
+    <string name="and_set_password_size"> y establezca el tamaño de la contraseña(max 30)</string>
+    <string name="characters_special">!@#$%¨*()+=-/.,[]?;:</string>
+    <string name="characters_letters">qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</string>
+    <string name="characters_numbers">0123456789</string>
+    <string name="password_label">contraseña</string>
+    <string name="password">Contraseña</string>
+    <string name="size">Tam.</string>
+    <string name="letters">Letras</string>
+    <string name="numbers">Números</string>
+    <string name="special">especial</string>
+    <string name="generate">generar</string>
+    <string name="save_password">guardar contraseña</string>
+    <string name="title_save_password_activity">Guardar Contraseña</string>
+    <string name="empty_entries">Campos vacíos</string>
+    <string name="password_list">Lista de Contraseñas</string>
+    <string name="text_no_passwords">Usted no tiene contraseñas guardadas. \n Para añadir una contraseña, haga clic en (...) y luego haga clic en (+)</string>
+
+    <!-- save_password_activity / SavePassowordActivity -->
+    <string name="password_save_password">Contraseña*</string>
+    <string name="username_save_password">Username</string>
+    <string name="description_save_password">Observaciones</string>
+    <string name="title_save_password">Título*</string>
+    <string name="button_save_password">Guardar la Contraseña</string>
+    <string name="save_sucess_save_password">¡La contraseña salva con éxito!</string>
+    <string name="save_not_sucess_save_password">Error al guardar la contraseña :(</string>
+    <string name="title_dialog_delete_password_save_password">Eliminar contraseña</string>
+    <string name="text_confirmation_dialog_delete_password_save_password">Usted realmente desea borrar la contraseña?</string>
+    <string name="delete_sucess_save_password">¡Contraseña borrada con éxito!</string>
+    <string name="required_save_password">* obligatorio</string>
+
+    <!-- lock_screen_activity / LockScreenActivity -->
+    <string name="intro_register_password_lock_screen">Usted no tiene una contraseña predeterminada registrada, entonces registre una contraseña para acceder a la aplicación.</string>
+    <string name="title_lock_screen">Acceda a la aplicación.</string>
+    <string name="access_allowed">Acceso permitido.</string>
+    <string name="access_denied">Acceso denegado.</string>
+    <string name="type_your_password">Introduzca su contraseña</string>
+    <string name="confirm_password">Confirme su contraseña</string>
+    <string name="password_not_match">Las contraseñas no confieren</string>
+    <string name="password_save_successfully">contraseña guardada con éxito</string>
+
+    <!-- settings_activity / SettingsActivity -->
+    <string name="settings_title">Ajustes</string>
+    <string name="change_password_settings">Cambiar contraseña</string>
+    <string name="current_password_settings">Contraseña actual</string>
+    <string name="new_password_settings">Nueva contraseña</string>
+    <string name="confirm_password_settings">Confirme la nueva contraseña</string>
+    <string name="button_change_password_settings">cambiar contraseña</string>
+    <string name="type_new_password_settings">escriba la nueva contraseña</string>
+    <string name="type_current_password_settings">escriba la contraseña actual</string>
+    <string name="confirm_new_password_settings">confirme la nueva contraseña</string>
+    <string name="wrong_current_password_settings">la contraseña actual es incorrecta</string>
+    <string name="not_match_password_settings">las contraseñas no confieren</string>
+    <string name="password_changed_success_settings">¡Contraseña alterada con éxito!</string>
+    <string name="share_passwords_settings">Compartir contraseñas</string>
+    <string name="info_about_share_passwords_settings">Para compartir y / o almacenar las contraseñas guardadas para copia de seguridad</string>
+    <string name="passwords_backup_settings">BACKUP DE LAS SEÑAS SALVAS:\n\n</string>
+    <string name="title_to_share_setting">TÍTULO: </string>
+    <string name="username_to_share_setting">USERNAME: </string>
+    <string name="password_to_share_setting">CONTRASEÑA: </string>
+    <string name="description_to_share_setting">DESCRIPCIÓN: </string>
+    <string name="dont_have_password_settings">Usted no tiene contraseñas para compartir</string>
+    <string name="change_theme_settings">Cambiar el tema</string>
+    <string name="select_color_theme_info_title">Seleccione el tema de color de la aplicación</string>
+    <string name="select_language_title_settings">Seleccionar idioma</string>
+    <string name="portuguese_settings">Portugués</string>
+    <string name="english_settings">Inglés</string>
+    <string name="spanish_settings">Español</string>
+    <string name="confirm_settings">confirmar</string>
+    <string name="language_changed_success">idioma cambiado con éxito!</string>
+
+
+
+</resources>

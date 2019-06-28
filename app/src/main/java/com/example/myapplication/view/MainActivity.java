@@ -4,6 +4,9 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +17,7 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -28,13 +32,16 @@ import com.example.myapplication.MyApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.constants.ActivitiesEnum;
 import com.example.myapplication.constants.DataConstants;
+import com.example.myapplication.constants.SharedPreferencesConstants;
 import com.example.myapplication.controller.PasswordDataController;
+import com.example.myapplication.data.SharedPreferencesPassword;
 import com.example.myapplication.model.PasswordModel;
 import com.example.myapplication.util.AndroidUtils;
 import com.example.myapplication.view.base.BaseActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends BaseActivity {
@@ -59,6 +66,8 @@ public class MainActivity extends BaseActivity {
 
     private FloatingActionButton fab_plus, fab_settings, fab_more;
 
+    SharedPreferencesPassword sharedPreferencesPassword;
+
     int flagBtnSave = 0;
 
     boolean moreIsOpen = false;
@@ -73,6 +82,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         final Context context = getApplicationContext();
         ((MyApplication) getApplication()).setCurrentActivity(ActivitiesEnum.MAIN_ACTIVITY.getName());
+        sharedPreferencesPassword = new SharedPreferencesPassword(context);
 
         crud = new PasswordDataController(getBaseContext());
 
@@ -225,7 +235,7 @@ public class MainActivity extends BaseActivity {
 
                 setVisibilityFullForm(true);
                 lv_passwords.setVisibility(View.GONE);
-
+                tv_lv_passwords.setVisibility(View.GONE);
                 btn_save.setVisibility(View.VISIBLE);
                 til_password.setVisibility(View.VISIBLE);
                 iv_hide_open.setVisibility(View.VISIBLE);
@@ -238,6 +248,7 @@ public class MainActivity extends BaseActivity {
         fab_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ((MyApplication) getApplication()).setNeedRecreate(true);
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
 
@@ -271,11 +282,13 @@ public class MainActivity extends BaseActivity {
                         setVisibilityFullForm(false);
                         fab_settings.hide();
                         lv_passwords.setVisibility(View.VISIBLE);
+                        tv_lv_passwords.setVisibility(View.VISIBLE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                         setState(2);
                     }else if(flagBtnSave == 2) { // PRE STATE to INITIAL STATE
                         setVisibilityFullForm(false);
                         lv_passwords.setVisibility(View.VISIBLE);
+                        tv_lv_passwords.setVisibility(View.VISIBLE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_more));
                         clearEditTexts();
                         setState(0);
@@ -288,6 +301,7 @@ public class MainActivity extends BaseActivity {
                         setVisibilityFullForm(true);
                         fab_settings.hide();
                         lv_passwords.setVisibility(View.GONE);
+                        tv_lv_passwords.setVisibility(View.GONE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                         btn_save.setVisibility(View.VISIBLE);
                         til_password.setVisibility(View.VISIBLE);
