@@ -130,7 +130,7 @@ public class MainActivity extends BaseActivity {
         loadListView();
 
         setVisibilityFullForm(false);
-        setLocale();
+
         btn_save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -235,7 +235,7 @@ public class MainActivity extends BaseActivity {
 
                 setVisibilityFullForm(true);
                 lv_passwords.setVisibility(View.GONE);
-
+                tv_lv_passwords.setVisibility(View.GONE);
                 btn_save.setVisibility(View.VISIBLE);
                 til_password.setVisibility(View.VISIBLE);
                 iv_hide_open.setVisibility(View.VISIBLE);
@@ -282,11 +282,13 @@ public class MainActivity extends BaseActivity {
                         setVisibilityFullForm(false);
                         fab_settings.hide();
                         lv_passwords.setVisibility(View.VISIBLE);
+                        tv_lv_passwords.setVisibility(View.VISIBLE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                         setState(2);
                     }else if(flagBtnSave == 2) { // PRE STATE to INITIAL STATE
                         setVisibilityFullForm(false);
                         lv_passwords.setVisibility(View.VISIBLE);
+                        tv_lv_passwords.setVisibility(View.VISIBLE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_more));
                         clearEditTexts();
                         setState(0);
@@ -299,6 +301,7 @@ public class MainActivity extends BaseActivity {
                         setVisibilityFullForm(true);
                         fab_settings.hide();
                         lv_passwords.setVisibility(View.GONE);
+                        tv_lv_passwords.setVisibility(View.GONE);
                         fab_more.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close));
                         btn_save.setVisibility(View.VISIBLE);
                         til_password.setVisibility(View.VISIBLE);
@@ -519,24 +522,6 @@ public class MainActivity extends BaseActivity {
         cb_letters.setChecked(true);
         cb_special.setChecked(true);
         cb_numbers.setChecked(true);
-    }
-
-    public void setLocale() {
-
-        if(((MyApplication) getApplication()).isNeedRecreate()){
-            String lang = sharedPreferencesPassword.getSharedPreferencesPassword(SharedPreferencesConstants.LOCALE_SHARED_PREFERENCE, "pt");
-            Locale myLocale = new Locale(lang);
-            Resources res = getResources();
-            DisplayMetrics dm = res.getDisplayMetrics();
-            Configuration conf = res.getConfiguration();
-            conf.locale = myLocale;
-            res.updateConfiguration(conf, dm);
-            Intent refresh = new Intent(this, MainActivity.class);
-            startActivity(refresh);
-            finish();
-            ((MyApplication) getApplication()).setNeedRecreate(false);
-        }
-
     }
 
 }
